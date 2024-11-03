@@ -26,6 +26,7 @@ public class EventRestController {
     }
     @PostMapping("/addEvent")
     public Event addEvent(@RequestBody Event event){
+        log.info("Add Event Method")
         return eventServices.addAffectEvenParticipant(event);
     }
     @PutMapping("/addAffectLog/{description}")
@@ -34,6 +35,7 @@ public class EventRestController {
     }
     @GetMapping("/getLogs/{d1}/{d2}")
     public List<Logistics> getLogistiquesDates (@PathVariable("d1") LocalDate date_debut, @PathVariable("d2") LocalDate date_fin){
+        log.info("Display logistics")
         return eventServices.getLogisticsDates(date_debut,date_fin);
     }
 }
